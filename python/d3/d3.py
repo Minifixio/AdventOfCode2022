@@ -20,5 +20,6 @@ def d2():
         s+=r
     return s
 
-print(d2())
+d1()
+d2()
         
