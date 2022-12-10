@@ -1,7 +1,7 @@
 f = open("./data/d3/input.txt")
 l = [ x for x in ''.join(f.readlines()).strip().split('\n') ]
 
-def d1():
+def p1():
     s=0
     for e in l:
         n=len(e)
@@ -11,7 +11,7 @@ def d1():
         s+=r
     return s
 
-def d2():
+def p2():
     s=0
     for i in range(0,len(l),3):
         c=list(set(l[i])&set(l[i+1])&set(l[i+2]))[0]
@@ -20,6 +20,6 @@ def d2():
         s+=r
     return s
 
-d1()
-d2()
+p1()
+p2()
         

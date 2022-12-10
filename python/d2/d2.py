@@ -8,7 +8,7 @@ def compare2(a,b,m,s):
     if f==0: f=3
     return f + ((ord(b)-s)%m-1)*3
     
-def d1(c1, c2):
+def p1(c1, c2):
     m = ord(c2)-ord(c1)-1
     s = ord(c1)
     l = f.readlines()
@@ -16,7 +16,7 @@ def d1(c1, c2):
     r = list(map(lambda z: compare1(z[0], z[1], m, s), e))
     return sum(r)
 
-def d2(c1, c2):
+def p2(c1, c2):
     m = ord(c2)-ord(c1)-1
     s = ord(c1)
     l = f.readlines()
@@ -24,5 +24,5 @@ def d2(c1, c2):
     r = list(map(lambda z: compare2(z[0], z[1], m, s), e))
     return sum(r)
 
-d1('A','X')
-d2('A','X')
+p1('A','X')
+p2('A','X')
