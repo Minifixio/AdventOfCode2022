@@ -18,7 +18,7 @@ def format_input():
             if g!=' ': stacks[h].append(g)
     return stacks,k
 
-def d1():
+def p1():
     stacks, k=format_input()
     for i in range(k+2, len(l)-1):
         e=l[i].split(" ")
@@ -28,5 +28,17 @@ def d1():
         stacks[b]=stacks[b][a:]
         stacks[c]=t+stacks[c]
     return "".join([ s[0] for s in stacks])
+
+def p2():
+    stacks, k=format_input()
+    for i in range(k+2, len(l)-1):
+        e=l[i].split(" ")
+        a,b,c=int(e[1]),int(e[3])-1,int(e[5])-1
+        print(stacks)
+        t=stacks[b][:a]
+        stacks[b]=stacks[b][a:]
+        stacks[c]=t+stacks[c]
+    return "".join([ s[0] for s in stacks])
     
-d1()
+p1()
+p2()
