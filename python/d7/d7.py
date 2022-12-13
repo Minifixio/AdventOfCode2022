@@ -23,7 +23,7 @@ class Dir:
         self.size+=size
         
               
-def d1():
+def build_dir():
     i=0
     dir_list=[]
     current_dir=None
@@ -54,10 +54,22 @@ def d1():
                 j+=1
             i=j
 
-    
+    return dir_list
+
+def p1():
+    dir_list=build_dir()
     sizes=[ d.size for d in dir_list ]
     low_sizes=[ s for s in sizes if s<=100000 ]
     return sum(low_sizes)
     
+def p2():
+    dir_list=build_dir()
+    dir_list.sort(key=lambda d: d.size)
+    total_outermost=dir_list[len(dir_list)-1].size
+    unused_space=70000000-total_outermost
+    size_to_delete=30000000-unused_space
+    s=[ d.size for d in dir_list if d.size>=size_to_delete ][0]
+    return s
 
-d1()
+p1()
+p2()
