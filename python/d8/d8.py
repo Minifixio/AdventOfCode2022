@@ -49,5 +49,47 @@ def p1():
     visible_col()
     valid=[[ 0 if x.visibility_table()==(0,0,0,0) else 1 for x in v ] for v in visibility_map]
     return sum([sum(x) for x in valid])
-        
+
+def p2():
+    scenic=[ [(0,0,0,0) for j in range(width)] for i in range(height)]
+    for i in range(height):
+        for j in range(width):
+            tree_height=int(l[i][j])
+            right=0
+            k=j+1
+            while k<width:
+                if int(l[i][k])>=tree_height:
+                    right+=1
+                    break
+                right+=1
+                k+=1
+            left=0
+            k=j-1
+            while k>=0:
+                if int(l[i][k])>=tree_height:
+                    left+=1
+                    break
+                left+=1
+                k-=1
+            bottom=0
+            k=i+1
+            while k<height:
+                if int(l[k][j])>=tree_height:
+                    bottom+=1
+                    break
+                bottom+=1
+                k+=1
+            top=0
+            k=i-1
+            while k>=0:
+                if int(l[k][j])>=tree_height:
+                    top+=1
+                    break
+                top+=1    
+                k=k-1
+            scenic[i][j]=(left,right,top,bottom)
+    scenic_score=[ [c[0]*c[1]*c[2]*c[3] for c in s] for s in scenic ] 
+    return max([ max(score) for score in scenic_score ])
+
 p1()
+p2()
